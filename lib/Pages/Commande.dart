@@ -1,5 +1,9 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
 class CommandePage extends StatefulWidget {
   const CommandePage({super.key});
 
@@ -7,7 +11,32 @@ class CommandePage extends StatefulWidget {
   State<CommandePage> createState() => _CommandePageState();
 }
 
+
+
 class _CommandePageState extends State<CommandePage> {
+  var ensemble_de_donnee;
+  Future <void> charger_commande() async{
+    final url=Uri.parse("http://10.0.2.2:8000/ensemble_des_commandes");
+    var message=await http.get(url);
+      setState(() {
+        ensemble_de_donnee=jsonDecode(message.body);
+      });
+
+print(ensemble_de_donnee);
+
+
+  }
+  Future <void> repetition() async{
+    Timer.periodic(
+      Duration(seconds: 5), (timer ) {charger_commande();},
+    );
+
+  }
+  @override
+  void initState(){
+    super.initState();
+    charger_commande();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
