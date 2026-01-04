@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="gestionnaire_des_commandes_mariam_food"
+        android:label="Commandes Mariam"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
