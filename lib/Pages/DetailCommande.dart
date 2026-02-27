@@ -27,7 +27,7 @@ class _DetailcommandePageState extends State<DetailcommandePage> {
           child: Column(
             children: [
               SizedBox(height: MediaQuery.of(context).size.height *0.08,),
-              Image.asset("assets/images/kiyotaka image entreprise.png",height: MediaQuery.of(context).size.height *0.3,width: MediaQuery.of(context).size.width *1,),
+              Image.asset("assets/images/mariame food.png",height: MediaQuery.of(context).size.height *0.25,width: MediaQuery.of(context).size.width *1,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
