@@ -16,10 +16,10 @@ class CommandePage extends StatefulWidget {
 
 class _CommandePageState extends State<CommandePage> {
 
-  var ensemble_de_donnee;
+
   var food=[];
 
-  List <String> identifiant=[];
+
   Future <void> charger_commande() async{
     var nourriture=await supabase
         .from("commandes")
@@ -128,7 +128,18 @@ class _CommandePageState extends State<CommandePage> {
                         );},)
                       ,)
 
-                  ],)
+                  ],),
+                Container(
+                  margin: EdgeInsets.only(top:MediaQuery.of(context).size.height *0.08),
+                  alignment: AlignmentDirectional.topEnd,
+                  width: MediaQuery.of(context).size.width *0.95,
+
+                  child: IconButton(onPressed: (){
+                    setState(() {
+                      food=[];
+                    });
+                    charger_commande();
+                  }, icon: Icon(Icons.currency_exchange_sharp,color: Color(0xFF632B23),)),)
               ],))
     );
   }
